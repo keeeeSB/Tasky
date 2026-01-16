@@ -1,0 +1,12 @@
+%p
+  = @email
+  さん、こんにちは！
+
+- if @resource.try(:unconfirmed_email?)
+  %p
+    あなたのメールアドレスは、次のアドレスに変更される予定です：
+    = @resource.unconfirmed_email
+- else
+  %p
+    あなたのメールアドレスは、次のアドレスに変更されました：
+    = @resource.email
