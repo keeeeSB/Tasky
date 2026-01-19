@@ -9,7 +9,17 @@
             = link_to 'ホーム', root_path, class: 'nav-link ms-3'
 
         %ul.navbar-nav.d-flex.flex-row.gap-3
-          %li.nav-item
-            = link_to '新規登録', '#', class: 'btn btn-outline-success btn-sm'
-          %li.nav-item
-            = link_to 'ログイン', '#', class: 'btn btn-outline-primary btn-sm me-3'
+          - if user_signed_in?
+            %li.nav-item
+              = link_to current_user.name, '#', class: 'btn btn-outline-success btn-sm'
+            %li.nav-item
+              = button_to 'ログアウト',
+                          destroy_user_session_path,
+                          method: :delete,
+                          form: { class: 'd-inline' },
+                          class: 'btn btn-outline-secondary btn-sm'
+          - else
+            %li.nav-item
+              = link_to '新規登録', new_user_registration_path, class: 'btn btn-outline-success btn-sm'
+            %li.nav-item
+              = link_to 'ログイン', new_user_session_path, class: 'btn btn-outline-primary btn-sm me-3'
