@@ -12,6 +12,9 @@ class Admins::TeamsController < Admins::ApplicationController
     @team = Team.new
   end
 
+  def edit
+  end
+
   def create
     @team = Team.new(team_params)
     if @team.save
@@ -20,9 +23,6 @@ class Admins::TeamsController < Admins::ApplicationController
       flash.now[:alert] = 'チームを作成できませんでした。'
       render :new, status: :unprocessable_content
     end
-  end
-
-  def edit
   end
 
   def update

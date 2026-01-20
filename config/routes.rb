@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admins do
     root 'dashboards#index'
-    resources :teams, only: %i[index show new create edit update destroy]
+    resources :teams, only: %i[index show new edit create update destroy]
   end
 
   root 'static_pages#home'

@@ -1,0 +1,8 @@
+.row.justify-content-center
+  .col-md-6
+    = simple_form_for([:admins, team]) do |f|
+      .form-inputs
+        = f.input :name, autofocus: true
+
+      .form-actions.text-center.mb-3
+        = f.button :submit, class: 'btn btn-outline-primary'
