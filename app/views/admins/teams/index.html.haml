@@ -1,0 +1,30 @@
+%h2.text-center.mb-4 チーム一覧
+
+.text-center.mb-4
+  = link_to 'チームを追加', new_admins_team_path, class: 'btn btn-outline-secondary'
+
+.row.justify-content-center
+  .col-md-8
+    - if @teams.exists?
+      %table.table.table-bordered.align-middle.text-center
+        %thead
+          %tr
+            %th.w-10 ID
+            %th チーム名
+            %th 操作
+        %tbody
+          - @teams.each do |team|
+            %tr
+              %td= team.id
+              %td= team.name
+              %td
+                = link_to '詳細', admins_team_path(team), class: 'btn btn-sm btn-outline-secondary me-2'
+                = link_to '編集', edit_admins_team_path(team), class: 'btn btn-sm btn-outline-warning me-2'
+                = button_to '削除',
+                            admins_team_path(team),
+                            method: :delete,
+                            data: { turbo_confirm: '本当に削除しますか？' },
+                            form: { class: 'd-inline' },
+                            class: 'btn btn-sm btn-outline-danger'
+    - else
+      %p.text-center チームがありません。
