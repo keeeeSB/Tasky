@@ -46,6 +46,6 @@ class Admins::TeamsController < Admins::ApplicationController
   end
 
   def set_team
-    @tean = Team.find(params[:id])
+    @team = Team.find(params[:id])
   end
 end
