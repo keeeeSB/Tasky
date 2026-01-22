@@ -5,7 +5,7 @@ class CreateTeamInvitations < ActiveRecord::Migration[8.0]
       t.string :email, null: false
       t.string :token, null: false
       t.datetime :expires_at, null: false
-      t.datetime :accepted_at, null: false
+      t.datetime :accepted_at
 
       t.timestamps
     end

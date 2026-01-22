@@ -27,7 +27,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_21_031937) do
     t.string "email", null: false
     t.string "token", null: false
     t.datetime "expires_at", null: false
-    t.datetime "accepted_at", null: false
+    t.datetime "accepted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_team_invitations_on_team_id"
