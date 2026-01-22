@@ -19,7 +19,7 @@ class Admins::Teams::TeamInvitationsController < Admins::ApplicationController
   private
 
   def invitation_params
-    params.expect(team_invitation: %i[email token expires_at accepted_at])
+    params.expect(team_invitation: %i[email])
   end
 
   def set_team
