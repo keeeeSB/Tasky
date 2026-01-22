@@ -14,6 +14,6 @@ class TeamInvitation < ApplicationRecord
   end
 
   def set_expires_at
-    self.expires_at ||= 3.days.from_now
+    self.expires_at ||= 1.day.from_now
   end
 end
