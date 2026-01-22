@@ -11,6 +11,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :team_invitations, only: [] do
+    collection do
+      get :accept
+    end
+  end
+
   root 'static_pages#home'
 
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
