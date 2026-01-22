@@ -3,3 +3,5 @@ ja:
     attributes:
       team:
         name: チーム名
+      team_invitation:
+        email: 招待者メールアドレス

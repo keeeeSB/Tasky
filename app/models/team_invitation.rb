@@ -1,7 +1,7 @@
 class TeamInvitation < ApplicationRecord
   belongs_to :team
 
-  before_validation %i[set_token set_expires_at], on: :create
+  before_validation :set_token, :set_expires_at, on: :create
 
   validates :email, presence: true
   validates :token, presence: true, uniqueness: true
