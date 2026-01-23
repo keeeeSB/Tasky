@@ -14,7 +14,7 @@ class TeamInvitationsController < ApplicationController
       end
       redirect_to root_path, notice: 'チームに参加しました。'
     else
-      session[:team_invitation.token] = invitation.token
+      session[:team_invitation_token] = invitation.token
       redirect_to new_user_session_path, notice: 'ログインしてください。'
     end
   end
