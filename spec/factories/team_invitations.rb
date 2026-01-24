@@ -4,6 +4,6 @@ FactoryBot.define do
     sequence(:email) { "user#{_1}@example.com" }
     token { 'a * 32' }
     expires_at { 3.days.from_now }
-    accepted_at { Time.current }
+    accepted_at { nil }
   end
 end
