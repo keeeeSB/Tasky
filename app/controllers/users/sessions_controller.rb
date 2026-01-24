@@ -15,5 +15,7 @@ class Users::SessionsController < Devise::SessionsController
         root_path
       end
     end
+
+    super
   end
 end

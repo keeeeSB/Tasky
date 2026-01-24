@@ -44,5 +44,18 @@ RSpec.describe 'チーム招待機能', type: :system do
         expect(page).to have_current_path root_path
       end
     end
+
+    it '期限切れの場合、チームに参加できない' do
+      invitation.update!(expires_at: 1.day.ago)
+
+      email = open_last_email
+
+      expect(email.subject).to eq 'チーム招待のお知らせ'
+
+      click_first_link_in_email(email)
+
+      expect(page).to have_content '無効なリンクです。'
+      expect(page).to have_current_path root_path
+    end
   end
 end

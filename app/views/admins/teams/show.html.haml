@@ -7,11 +7,12 @@
         %tr
           %th.text-center.w-25 チーム名
           %td= @team.name
-        -# %tr
-        -#   %th.text-center.w-25 チームメンバー一覧
-        -#   %td
-        -#     - @team.users.default_order.each do |user|
-        -#       = user.name
+        - if @team.users.exists?
+          %tr
+            %th.text-center.w-25 チームメンバー一覧
+            %td
+              - @team.users.default_order.each do |user|
+                = user.name
 
     .text-center
       .mb-3
