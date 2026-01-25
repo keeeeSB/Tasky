@@ -11,7 +11,11 @@
         %ul.navbar-nav.d-flex.flex-row.gap-3
           - if user_signed_in?
             %li.nav-item
-              = link_to current_user.name, '#', class: 'btn btn-outline-success btn-sm'
+              = link_to '#', class: 'btn btn-outline-success btn-sm d-flex align-items-center gap-2' do
+                - if current_user.team&.logo&.attached?
+                  = image_tag current_user.team.logo.variant(:logo),
+                              class: 'rounded-circle'
+                = current_user.name
             %li.nav-item
               = button_to 'ログアウト',
                           destroy_user_session_path,

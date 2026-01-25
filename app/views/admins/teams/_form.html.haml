@@ -3,6 +3,12 @@
     = simple_form_for([:admins, team]) do |f|
       .form-inputs
         = f.input :name, autofocus: true
+        = f.input :logo, as: :file
+
+        - if team.logo.attached?
+          .mt-2.text-center
+            = image_tag team.logo.variant(:thumb),
+                        class: 'img-fluid rounded'
 
       .form-actions.text-center.mb-3
         = f.button :submit, class: 'btn btn-outline-primary'
