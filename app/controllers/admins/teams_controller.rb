@@ -42,7 +42,7 @@ class Admins::TeamsController < Admins::ApplicationController
   private
 
   def team_params
-    params.expect(team: %i[name])
+    params.expect(team: %i[name logo])
   end
 
   def set_team

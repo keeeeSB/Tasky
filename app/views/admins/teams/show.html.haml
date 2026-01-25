@@ -7,6 +7,10 @@
         %tr
           %th.text-center.w-25 チーム名
           %td= @team.name
+        - if @team.logo.attached?
+          %tr
+            %th.text-center.w-25 チームロゴ
+            %td= image_tag @team.logo.variant(:thumb), class: 'rounded-circle'
         - if @team.users.exists?
           %tr
             %th.text-center.w-25 チームメンバー一覧
