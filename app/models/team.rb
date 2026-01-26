@@ -6,6 +6,7 @@ class Team < ApplicationRecord
 
   has_many :team_invitations, dependent: :destroy
   has_many :users, dependent: :nullify
+  has_many :tasks, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
 
