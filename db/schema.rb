@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_01_25_183906) do
+ActiveRecord::Schema[8.0].define(version: 2026_01_26_190124) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -48,6 +48,16 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_25_183906) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.bigint "team_id", null: false
+    t.string "title", null: false
+    t.text "description", null: false
+    t.boolean "completed", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_tasks_on_team_id"
   end
 
   create_table "team_invitations", force: :cascade do |t|
@@ -91,6 +101,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_25_183906) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "tasks", "teams"
   add_foreign_key "team_invitations", "teams"
   add_foreign_key "users", "teams"
 end
