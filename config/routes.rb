@@ -15,7 +15,11 @@ Rails.application.routes.draw do
 
   namespace :users do
     resource :team, only: %i[show] do
-      resources :tasks, only: %i[show new edit create update destroy], module: :teams
+      resources :tasks, only: %i[show new edit create update destroy], module: :teams do
+        member do
+          patch :toggle
+        end
+      end
     end
   end
 
