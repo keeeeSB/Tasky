@@ -1,6 +1,6 @@
 class Users::Teams::TasksController < Users::ApplicationController
   before_action :set_team
-  before_action :set_task, only: %i[show edit update destroy]
+  before_action :set_task, only: %i[show edit update destroy toggle]
 
   def show
   end
@@ -34,6 +34,11 @@ class Users::Teams::TasksController < Users::ApplicationController
   def destroy
     @task.destroy!
     redirect_to users_team_path, notice: 'タスクを削除しました。', status: :see_other
+  end
+
+  def toggle
+    @task.update!(completed: !@task.completed)
+    redirect_to users_team_path, notice: '完了状況を更新しました。'
   end
 
   private

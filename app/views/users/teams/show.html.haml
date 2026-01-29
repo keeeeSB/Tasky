@@ -11,10 +11,14 @@
       %h4.mb-3 タスク一覧
       - if @team.tasks.exists?
         - @team.tasks.default_order.each do |task|
-          = link_to users_team_task_path(task), class: 'text-decoration-none' do
-            .card.shadow-sm.mb-4
-              .card-body.py-3
+          .card.shadow-sm.mb-4
+            .card-body.py-3
+              = link_to users_team_task_path(task), class: 'text-decoration-none text-dark' do
                 %h5.card-title.fw-semibold.mb-2= task.title
-                %p.mb-1= h(task.description)
+              %p.mb-2= h(task.description)
+              = button_to task.completed? ? '完了を取り消す' : '完了にする',
+                          toggle_users_team_task_path(task),
+                          method: :patch,
+                          class: "btn btn-sm #{task.completed? ? 'btn-secondary' : 'btn-outline-success'}"
       - else
         %p タスクがありません。
