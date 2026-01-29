@@ -3,5 +3,7 @@ class Task < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true, length: { maximum: 255 }
-  validates :completed, presence: true, inclusion: { in: [true, false] }
+  validates :completed, inclusion: { in: [true, false] }
+
+  scope :default_order, -> { order(created_at: :desc, id: :desc) }
 end
