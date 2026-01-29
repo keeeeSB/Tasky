@@ -1,0 +1,17 @@
+%h2.text-center.mb-3 タスク詳細
+
+.row.justify-content-center
+  .col-md-6.text-center
+    .card.shadow-sm.mb-3
+      .card-body.py-3
+        .card-title.fw-bold= @task.title
+        %p.mb-1= h(@task.description)
+
+    .mb-3
+      = link_to '編集する', edit_users_team_task_path(@task), class: 'btn btn-outline-warning me-3'
+      = button_to '削除する',
+                  users_team_task_path(@task),
+                  method: :delete,
+                  data: { turbo_confirm: '本当に削除しますか？' },
+                  form: { class: 'd-inline' },
+                  class: 'btn btn-outline-danger'
