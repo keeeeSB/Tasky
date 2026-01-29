@@ -39,7 +39,7 @@ class Users::Teams::TasksController < Users::ApplicationController
   private
 
   def task_params
-    params.expect(team: %i[title description completed])
+    params.expect(task: %i[title description])
   end
 
   def set_team
