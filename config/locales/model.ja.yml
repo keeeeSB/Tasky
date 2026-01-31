@@ -5,3 +5,6 @@ ja:
         name: チーム名
       team_invitation:
         email: 招待者メールアドレス
+      task:
+        title: タイトル
+        description: 説明文

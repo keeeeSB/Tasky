@@ -7,6 +7,9 @@
         %ul.navbar-nav.d-flex.flex-row.gap-3
           %li.nav-item
             = link_to 'ホーム', root_path, class: 'nav-link ms-3'
+          - if current_user&.team.present?
+            %li.nav-item
+              = link_to 'チーム', users_team_path, class: 'nav-link ms-3'
 
         %ul.navbar-nav.d-flex.flex-row.gap-3
           - if user_signed_in?
