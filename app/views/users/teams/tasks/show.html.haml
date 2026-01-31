@@ -5,7 +5,11 @@
     .card.shadow-sm.mb-3
       .card-body.py-3
         .card-title.fw-bold= @task.title
-        %p.mb-1= h(@task.description)
+        %p.mb-3= h(@task.description)
+        = button_to @task.completed? ? '完了を取り消す' : '完了にする',
+                    toggle_users_team_task_path(@task),
+                    method: :patch,
+                    class: "btn btn-sm #{@task.completed? ? 'btn-secondary' : 'btn-outline-success'}"
 
     .mb-3
       = link_to '編集する', edit_users_team_task_path(@task), class: 'btn btn-outline-warning me-3'
