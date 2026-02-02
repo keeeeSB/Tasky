@@ -13,6 +13,16 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :users do
+    resource :team, only: %i[show] do
+      resources :tasks, only: %i[show new edit create update destroy], module: :teams do
+        member do
+          patch :toggle
+        end
+      end
+    end
+  end
+
   resources :team_invitations, only: [] do
     collection do
       get :accept
