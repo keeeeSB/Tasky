@@ -9,7 +9,7 @@
         = button_to @task.completed? ? '完了を取り消す' : '完了にする',
                     toggle_users_team_task_path(@task),
                     method: :patch,
-                    class: "btn btn-sm #{@task.completed? ? 'btn-secondary' : 'btn-outline-success'}"
+                    class: "btn btn-sm #{@task.completed? ? 'btn-danger' : 'btn-outline-success'}"
 
     .mb-3.d-flex.justify-content-center.gap-3
       = link_to '一覧に戻る', users_team_path, class: 'btn btn-outline-secondary'
